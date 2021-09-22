@@ -12,7 +12,7 @@ Router.events.on('routeChangeError', () => nProgress.done());
 // The apollo prop is passed into MyApp by the withData() function
 function MyApp({ Component, pageProps, apollo }) {
   return (
-    <ApolloProvider>
+    <ApolloProvider client={apollo}>
       <Page>
         <Component {...pageProps} />
       </Page>
