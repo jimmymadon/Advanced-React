@@ -1,3 +1,4 @@
+import { ApolloProvider } from '@apollo/client';
 import Router from 'next/router';
 import nProgress from 'nprogress';
 import Page from '../components/Page';
@@ -10,11 +11,12 @@ Router.events.on('routeChangeError', () => nProgress.done());
 
 // The apollo prop is passed into MyApp by the withData() function
 function MyApp({ Component, pageProps, apollo }) {
-  console.log(apollo);
   return (
-    <Page>
-      <Component {...pageProps} />
-    </Page>
+    <ApolloProvider>
+      <Page>
+        <Component {...pageProps} />
+      </Page>
+    </ApolloProvider>
   );
 }
 
